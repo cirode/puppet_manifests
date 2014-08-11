@@ -24,13 +24,13 @@ class zfs{
         require => Package['zfs-dkms'],
       }
 
-      Exec{ 'load-zfs-module':
+      exec{ 'load-zfs-module':
         command => "modprobe zfs",
         unless => "cat /proc/modules | grep '^zfs'",
         require => Package['ubuntu-zfs'],
       }
 
-    }
+    },
     default : {
       fail("zfs is not currently supported on ${::operatingsystem}")
     }
