@@ -5,7 +5,7 @@ class zfs{
 
       include kmod
 
-      class{'zfs::repository':}
+      class{'zfs::repository': }
 
       package{ 'debootstrap':
         ensure => latest,
@@ -24,10 +24,11 @@ class zfs{
         require => Class['zfs::repository'],
       }
 
-      kmod::load{ 'zfs':
+      exec{ 'load-zfs-module':
+        command => "modprobe zfs"
         require => Package['ubuntu-zfs'],
+        unless =>  "cat /proc/modules | grep '^zfs'",
       }
-
 
     }
     default : {
