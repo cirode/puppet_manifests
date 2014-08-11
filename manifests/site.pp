@@ -1,9 +1,12 @@
 node default {
-  include zfs
 
   Exec{
     path => '/usr/bin:/bin:/usr/sbin:/sbin',
   }
+
+  include zfs
+
+
 }
 
 
@@ -20,6 +23,10 @@ node default {
 #
 # rbenv install 2.1.2
 # rbenv global 2.1.2
+
+# apt-get install libaugeas-dev
+# gem install puppet
+# gem install librarian-puppet
 #
 #
 #

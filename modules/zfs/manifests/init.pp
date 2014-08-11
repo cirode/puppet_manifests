@@ -21,15 +21,14 @@ class zfs{
       }
       package {'ubuntu-zfs':
         ensure => latest,
-        require => Class['zfs::repository'],
+        require => Package['zfs-dkms'],
       }
 
-      kmod::load{ 'zfs':
+      Exec{ 'load-zfs-module':
+        command => "modprobe zfs",
+        unless => "cat /proc/modules | grep '^zfs'"
         require => Package['ubuntu-zfs'],
       }
-
-
-
 
     }
     default : {
