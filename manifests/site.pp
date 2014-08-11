@@ -1,5 +1,9 @@
 node default {
   include zfs
+
+  Exec{
+    path => '/usr/bin:/bin:/usr/sbin:/sbin',
+  }
 }
 
 

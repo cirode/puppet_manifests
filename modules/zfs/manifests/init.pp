@@ -24,11 +24,12 @@ class zfs{
         require => Class['zfs::repository'],
       }
 
-      exec { 'load-zfs-module':
-        command => "modprobe zfs",
+      kmod::load{ 'zfs':
         require => Package['ubuntu-zfs'],
-        unless =>  "cat /proc/modules | grep '^zfs'",
       }
+
+
+
 
     }
     default : {
