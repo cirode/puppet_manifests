@@ -5,7 +5,7 @@ class zfs{
 
       include kmod
 
-      zfs::repository{}
+      class{'zfs::repository':}
 
       package{ 'debootstrap':
         ensure => latest,

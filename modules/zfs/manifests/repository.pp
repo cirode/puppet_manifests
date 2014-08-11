@@ -1,4 +1,4 @@
-define zfs::repository {
+class zfs::repository {
   include apt
   package {'python-software-properties':
     ensure => present,
