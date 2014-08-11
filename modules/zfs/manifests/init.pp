@@ -26,7 +26,7 @@ class zfs{
 
       Exec{ 'load-zfs-module':
         command => "modprobe zfs",
-        unless => "cat /proc/modules | grep '^zfs'"
+        unless => "cat /proc/modules | grep '^zfs'",
         require => Package['ubuntu-zfs'],
       }
 
