@@ -2,5 +2,5 @@ forge "https://forgeapi.puppetlabs.com"
 
 #metadata
 
-mod 'puppet-kmod'
+mod 'camptocamp-kmod'
 mod 'puppetlabs-apt'
