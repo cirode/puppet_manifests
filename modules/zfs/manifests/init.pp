@@ -24,8 +24,8 @@ class zfs{
         require => Class['zfs::repository'],
       }
 
-      exec{ 'load-zfs-module':
-        command => "modprobe zfs"
+      exec { 'load-zfs-module':
+        command => "modprobe zfs",
         require => Package['ubuntu-zfs'],
         unless =>  "cat /proc/modules | grep '^zfs'",
       }
