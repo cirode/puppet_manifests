@@ -30,7 +30,7 @@ class zfs{
         require => Package['ubuntu-zfs'],
       }
 
-    },
+    }
     default : {
       fail("zfs is not currently supported on ${::operatingsystem}")
     }
